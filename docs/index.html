@@ -65,11 +65,11 @@
 			crel(document.body,dst);
 
 		 	var calc = Module.cwrap("calc","void",["number","number","number","number","number"]);
-							
-			var size = (dst.width*dst.height)<<2;
 			
 			var dim = new Int32Array(Module.HEAP32.buffer,Module._malloc(2),2);
 			
+			var size = (dst.width*dst.height)<<2;
+
 			var bip = new Uint8Array(Module.HEAPU8.buffer,Module._malloc(size),size);
 			var bop = new Uint8Array(Module.HEAPU8.buffer,Module._malloc(size),size);	
 			
