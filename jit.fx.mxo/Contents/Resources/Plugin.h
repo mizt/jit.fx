@@ -1,5 +1,7 @@
 typedef void (*POST_FUNC)(const char *fmt, ...);
 
+#ifndef EMSCRIPTEN 
+
 class Plugin {
 	private:
 		void *instance = nullptr;
@@ -9,6 +11,8 @@ class Plugin {
 		virtual void set(std::string key,double value);
         virtual void calc(long *dim,unsigned char *bip,long in_rows,unsigned char *bop, long out_rows);
 };
+
+#endif
 
 #ifdef USE_PLUGIN
 	typedef Plugin *newPlugin(POST_FUNC func);
@@ -24,10 +28,10 @@ namespace FX {
 				(*this->_post)(format,std::forward<Args>(args)...);
 			}			
 			Base(POST_FUNC func) {
-				this->_post = func;
+				if(func) this->_post = func;
 			}		
 			~Base() {
-				this->_post = nullptr;
+				if(this->_post) this->_post = nullptr;
 			}
 	};
 }
