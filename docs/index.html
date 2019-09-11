@@ -39,11 +39,11 @@
 		
 		var isInit = false;
 	
-		var video = crel("video",{src:"./960x540.mp4",loop:true,autoplay:true,playsinline:true,muted:true});
+		var video = crel("video",{loop:true,autoplay:true,playsinline:true,muted:true});
 		crel(document.body,video);
 		
-		video.addEventListener("play",function () {
-			
+		video.addEventListener("play",function(){
+						
 			if(isInit) return;
 			isInit=  true;
 						
@@ -153,6 +153,8 @@
 			},1000/30);
 		
 		});
+		
+		video.src = "./960x540.mp4";
 		
 	</script>
 </body>
