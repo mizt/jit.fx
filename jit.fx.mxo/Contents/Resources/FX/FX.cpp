@@ -1,4 +1,3 @@
-#import <Cocoa/Cocoa.h>
 #import <string>
 #import "../Plugin.h"
 
