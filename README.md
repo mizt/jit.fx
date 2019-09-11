@@ -11,3 +11,12 @@ Auto-reload on build success.
 ### CodeRunner settings
 
 ![](./settings.png)
+
+
+### Build for HTML5 Canvas
+
+	$ jit.fx.mxo/Contents/Resources/FX/emscripten.sh
+
+##### Note 
+
+Jitter and HTML5 Canvas have different pixel formats.
